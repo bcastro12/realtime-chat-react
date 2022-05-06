@@ -36,8 +36,8 @@ export default function Chat({ socket }) {
 			<div className="chat-body">
 				<div className="messages">
 					<div className="messages-list">
-						{messageList.map((data) => (
-							<Message text={data.message} author={data.name} bot={data.bot} socket={socket} authorId={data.userId} />
+						{messageList.map((data, i) => (
+							<Message key={i} text={data.message} author={data.name} bot={data.bot} socket={socket} authorId={data.userId} />
 						))}
 					</div>
 				</div>
