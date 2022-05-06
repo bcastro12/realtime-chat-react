@@ -11,6 +11,7 @@ export default function Chat({ socket }) {
 	useEffect(() => {
 		socket.on("receiveMessage", (data) => {
 			setMessageList((list) => [...list, data]);
+			scrollDown();
 		});
 	}, [socket]);
 
@@ -24,6 +25,11 @@ export default function Chat({ socket }) {
 	const clearInput = () => {
 		document.querySelector("#input").value = "";
 	};
+
+	const scrollDown = () => {
+		const div = document.querySelector('.chat-body');
+		div.scrollTop = div.scrollHeight;
+	}
 
 	return (
 		<div className="chat-container">
